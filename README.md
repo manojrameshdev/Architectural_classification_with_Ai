@@ -81,21 +81,23 @@ The model performs well in identifying architectural features such as:
 - Structural symmetry
 # 🖼️ Application Demo
 
-## Church Detection
+## 🖼 Application Demo
 
-![Church Prediction](assets/church_prediction.png)
+### Church Detection
 
----
-
-## Dravidian Temple Detection
-
-![Dravidian Prediction](assets/dravidian_prediction.png)
+![Church Prediction](chruch.png)
 
 ---
 
-## Nagara Temple Detection
+### Dravidian Temple Detection
 
-![Nagara Prediction](assets/nagara_prediction.png)
+![Dravidian Prediction](temple%20Dravidian%20.png)
+
+---
+
+### Nagara Temple Detection
+
+![Nagara Prediction](temple%20nagara.png)
 
 ##Requirements 
 Create requirements.txt
