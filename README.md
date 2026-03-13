@@ -71,16 +71,38 @@ Precision
 Recall  
 F1 Score
 
-# Model Architecture
+# 🧠 Model Architecture
 
 The system uses a Convolutional Neural Network (CNN) for image classification.
 
-Steps:
-1. Image preprocessing
-2. Feature extraction using convolution layers
-3. Flatten layer
-4. Fully connected layer
-5. Softmax classification
+## pipeline
+
+Input Image
+
+    ↓
+
+Image Preprocessing
+
+    ↓
+
+Convolution Layers
+    
+    ↓
+
+Flatten Layer
+    
+    ↓
+
+Dense Layer
+
+    ↓
+
+Softmax Output
+    
+    ↓
+
+Prediction
+
 
 # 📊 Model Performance
 
@@ -95,9 +117,8 @@ The model performs well in identifying architectural features such as:
 - Domes
 - Sculptures
 - Structural symmetry
+  
 # 🖼️ Application Demo
-
-## 🖼 Application Demo
 
 ### Church Detection
 
@@ -115,18 +136,29 @@ The model performs well in identifying architectural features such as:
 
 ![Nagara Prediction](temple_nagara.png)
 
-##Requirements 
-Create requirements.txt
+# Requirements
+
+## Create requirements.txt
+
 streamlit
+
 tensorflow
+
 keras
-opencv-python
+
+opencv
+
+python
+
 numpy
+
 pillow
+
 matplotlib
+
 scikit-learn
 
-##install with 
+## Install dependencies:
 
 pip install -r requirements.txt
 
@@ -135,7 +167,7 @@ pip install -r requirements.txt
 ![Streamlit](https://img.shields.io/badge/Streamlit-WebApp-red)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-# Dataset 
+# 📂 Dataset 
 
 Images were collected from open-source architectural datasets and manually curated images of:
 
@@ -145,19 +177,51 @@ Images were collected from open-source architectural datasets and manually curat
 
 link :- https://drive.google.com/drive/folders/1LbzF0nsc0NqjqXjtO9bMaDa-Hy9BqfNk?usp=sharing
 
-## Installation
+# ⚙ Installation
 
 Clone the repository
 
-git clone https://github.com/manojrameshdev/Architectural_classification_with_Ai.git
+1. git clone https://github.com/manojrameshdev/Architectural_classification_with_Ai.git
 
-cd Architectural_classification_with_Ai
+2. cd Architectural_classification_with_Ai
 
-Install dependencies
+3. Install dependencies
 
-pip install -r requirements.txt
+4. pip install -r requirements.txt
 
-Run the application
+5. Run the application
 
-streamlit run app.py
+6. streamlit run app.py
 
+# 🛠 Tech Stack
+
+Python
+
+TensorFlow / Keras
+
+OpenCV
+
+Streamlit
+
+NumPy
+
+Scikit-learn
+
+# 🚀 Future Improvements
+
+1. Add more architectural styles
+
+2. Improve dataset size
+
+3. Deploy model online
+
+4. Add Gen-Ai to re-construct the destroyed parts of architecture.
+
+5. Improve model accuracy
+
+# 👨‍💻 Author
+
+Manoj Ramesh
+
+## GitHub:
+https://github.com/manojrameshdev
