@@ -1,4 +1,9 @@
 # 🧠 System Architecture
+# Architecture Diagram
+
+![Architecture
+-Diagram
+](architecture_diagram.png)
 
 The application follows a multi-stage AI pipeline:
 
@@ -66,6 +71,17 @@ Precision
 Recall  
 F1 Score
 
+# Model Architecture
+
+The system uses a Convolutional Neural Network (CNN) for image classification.
+
+Steps:
+1. Image preprocessing
+2. Feature extraction using convolution layers
+3. Flatten layer
+4. Fully connected layer
+5. Softmax classification
+
 # 📊 Model Performance
 
 | Model | Accuracy |
@@ -119,7 +135,29 @@ pip install -r requirements.txt
 ![Streamlit](https://img.shields.io/badge/Streamlit-WebApp-red)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-# Data_set 
+# Dataset 
 
-https://drive.google.com/drive/folders/1LbzF0nsc0NqjqXjtO9bMaDa-Hy9BqfNk?usp=sharing
+Images were collected from open-source architectural datasets and manually curated images of:
+
+• Churches
+• Dravidian temples
+• Nagara temples
+
+link :- https://drive.google.com/drive/folders/1LbzF0nsc0NqjqXjtO9bMaDa-Hy9BqfNk?usp=sharing
+
+## Installation
+
+Clone the repository
+
+git clone https://github.com/manojrameshdev/Architectural_classification_with_Ai.git
+
+cd Architectural_classification_with_Ai
+
+Install dependencies
+
+pip install -r requirements.txt
+
+Run the application
+
+streamlit run app.py
 
