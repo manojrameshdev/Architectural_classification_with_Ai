@@ -91,13 +91,13 @@ The model performs well in identifying architectural features such as:
 
 ### Dravidian Temple Detection
 
-![Dravidian Prediction](temple%20Dravidian%20.png)
+![Dravidian Prediction](temple_dravidian%20.png)
 
 ---
 
 ### Nagara Temple Detection
 
-![Nagara Prediction](temple%20nagara.png)
+![Nagara Prediction](temple_nagara.png)
 
 ##Requirements 
 Create requirements.txt
