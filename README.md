@@ -24,33 +24,63 @@
 
 ---
 
-## 📸 Live Demo
+## 📸 App Demo
+
+### 🖼️ Standard Image Upload
 
 <table>
   <tr>
     <td align="center" width="33%">
-      <img src="chruch.png" alt="Church Detection" width="100%"/>
-      <br/>
-      <b>⛪ Church Detected</b>
-      <br/>
-      <sub>Confidence: 97%</sub>
+      <img src="chruch.png" alt="Church upload prediction" width="100%"/>
+      <br/><br/>
+      <b>⛪ Church Detected</b><br/>
+      <sub>✅ Church: <code>1.00</code> &nbsp;|&nbsp; Mosque: <code>0.00</code> &nbsp;|&nbsp; Temple: <code>0.00</code></sub>
     </td>
     <td align="center" width="33%">
-      <img src="temple_dravidian .png" alt="Dravidian Temple" width="100%"/>
-      <br/>
-      <b>🏯 Dravidian Temple</b>
-      <br/>
-      <sub>Style confidence: 75%</sub>
+      <img src="church2.png" alt="Church high confidence" width="100%"/>
+      <br/><br/>
+      <b>⛪ Church — High Confidence</b><br/>
+      <sub>✅ Church: <code>0.83</code> &nbsp;|&nbsp; Mosque: <code>0.00</code> &nbsp;|&nbsp; Temple: <code>0.17</code></sub>
     </td>
     <td align="center" width="33%">
-      <img src="temple_nagara.png" alt="Nagara Temple" width="100%"/>
-      <br/>
-      <b>🕌 Nagara Temple</b>
-      <br/>
-      <sub>Style confidence: 79%</sub>
+      <img src="mosque.png" alt="Mosque prediction" width="100%"/>
+      <br/><br/>
+      <b>🕌 Mosque Detected</b><br/>
+      <sub>✅ Church: <code>0.00</code> &nbsp;|&nbsp; Mosque: <code>1.00</code> &nbsp;|&nbsp; Temple: <code>0.00</code></sub>
     </td>
   </tr>
 </table>
+
+> **Level 1 accuracy on display** — the model identifies Church and Mosque with near-perfect confidence from clean architectural photographs.
+
+---
+
+### 📷 Real-Time Camera Capture
+
+<table>
+  <tr>
+    <td align="center" width="33%">
+      <img src="realtim_church.png" alt="Real-time church capture" width="100%"/>
+      <br/><br/>
+      <b>⛪ Church — Live Camera</b><br/>
+      <sub>✅ Church: <code>0.97</code> &nbsp;|&nbsp; Mosque: <code>0.00</code> &nbsp;|&nbsp; Temple: <code>0.02</code></sub>
+    </td>
+    <td align="center" width="33%">
+      <img src="realtime_mosque.png" alt="Real-time mosque capture" width="100%"/>
+      <br/><br/>
+      <b>🕌 Mosque — Live Camera</b><br/>
+      <sub>✅ Church: <code>0.01</code> &nbsp;|&nbsp; Mosque: <code>0.99</code> &nbsp;|&nbsp; Temple: <code>0.00</code></sub>
+    </td>
+    <td align="center" width="33%">
+      <img src="realtime_temple.png" alt="Real-time Nagara temple" width="100%"/>
+      <br/><br/>
+      <b>🏰 Temple → Nagara Style</b><br/>
+      <sub>✅ Temple: <code>0.90</code> &nbsp;|&nbsp; Nagara style: <code>1.00</code></sub>
+    </td>
+  </tr>
+</table>
+
+> **Two-level classification in action** — the temple image triggers the Level 2 style classifier, correctly identifying the Nagara beehive-shikhara form with full confidence.
 
 ---
 
