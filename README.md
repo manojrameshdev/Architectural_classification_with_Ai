@@ -97,42 +97,8 @@
 
 ## 🧠 How It Works
 
-The system runs a **two-stage CNN pipeline** powered by MobileNetV2 transfer learning:
-
-```
-📷 Image Input (upload or webcam)
-         │
-         ▼
-🔧 Preprocessing
-   • Resize to 224×224
-   • Pixel normalisation (÷255)
-   • RGBA → RGB, grayscale → RGB handling
-         │
-         ▼
-🧠 Level 1 Classifier  ←─── MobileNetV2 + GlobalAveragePooling + Dense(3, softmax)
-   • Trained on: Church / Mosque / Temple
-   • Accuracy: 92%
-         │
-         ├──── Church  →  "Steeples, Gothic/Baroque or Modern styles"
-         ├──── Mosque  →  "Domes, Minarets, Arches, Islamic ornaments"
-         └──── Temple  ──────────────────────────────────────────────┐
-                                                                      │
-                                                                      ▼
-                                               🧠 Level 2 Classifier
-                                                  • Dravidian vs Nagara
-                                                  • Accuracy: 89%
-                                                      │
-                                          ┌───────────┴───────────┐
-                                          ▼                       ▼
-                                     Dravidian               Nagara
-                                  Gopurams, South         Shikharas, North
-                                       India                   India
-         │
-         ▼
-📈 Output: Class label + confidence scores + architectural description
-```
-
----
+## 🔀 Pipeline Diagram
+![Pipeline](pipeline_diagram.png)
 
 ## 🏗️ Model Architecture
 
