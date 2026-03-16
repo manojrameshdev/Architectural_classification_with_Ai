@@ -36,7 +36,7 @@
       <sub>Confidence: 97%</sub>
     </td>
     <td align="center" width="33%">
-      <img src="temple_dravidian_.png" alt="temple_dravidian" width="100%"/>
+      <img src="temple_dravidian.png" alt="temple_dravidian" width="100%"/>
       <br/>
       <b>🏯 Dravidian Temple</b>
       <br/>
