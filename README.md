@@ -1,227 +1,304 @@
-# 🧠 System Architecture
-# Architecture Diagram
+<div align="center">
 
-![Architecture
--Diagram
-](architecture_diagram.png)
+<img src="architecture_diagram.png" alt="Architecture Diagram" width="100%"/>
 
-The application follows a multi-stage AI pipeline:
+<br/>
 
-1. **Image Input**
-   - User uploads or captures an architectural image
+# 🏛️ Architectural Image Classifier
 
-2. **Preprocessing**
-   - Image resizing
-   - Normalization
-   - Noise reduction
+### AI-powered computer vision that identifies religious architecture and Indian temple styles
 
-3. **Level 1 Model**
-   - CNN classifier
-   - Predicts:
-        Church
-        Mosque
-        Temple
+[![Python](https://img.shields.io/badge/Python-3.10-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)](https://tensorflow.org)
+[![Keras](https://img.shields.io/badge/Keras-MobileNetV2-D00000?style=for-the-badge&logo=keras&logoColor=white)](https://keras.io)
+[![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io)
+[![License](https://img.shields.io/badge/License-MIT-22C55E?style=for-the-badge)](LICENSE)
 
-4. **Level 2 Model**
-   - Activated only if prediction = Temple
-   - Classifies:
-        Dravidian
-        Nagara
+<br/>
 
-5. **Prediction Layer**
-   - Softmax probabilities
-   - Confidence score visualization
+> Upload or photograph any religious building — the system identifies **Church**, **Mosque**, or **Temple**, and for temples, further classifies the style as **Dravidian** or **Nagara** with softmax confidence scores.
 
-6. **User Interface**
-   - Streamlit dashboard
-   - Prediction explanation
-  
-# 🧪 Model Training
+<br/>
 
-## Data Preprocessing
-
-The images were preprocessed using:
-
-- Image resizing: 224 × 224
-- Pixel normalization
-- Data augmentation
-
-Techniques used:
-
-- Rotation
-- Horizontal flip
-- Zoom
-- Brightness adjustment
-
-## Training Details
-
-Model: Convolutional Neural Network (CNN)
-
-Training parameters:
-
-Epochs: 20–50  
-Batch Size: 32  
-Optimizer: Adam  
-Loss Function: Categorical Crossentropy  
-
-## Evaluation Metrics
-
-Accuracy  
-Precision  
-Recall  
-F1 Score
-
-# 🧠 Model Architecture
-
-The system uses a Convolutional Neural Network (CNN) for image classification.
-
-## pipeline
-
-Input Image
-
-    ↓
-
-Image Preprocessing
-
-    ↓
-
-Convolution Layers
-    
-    ↓
-
-Flatten Layer
-    
-    ↓
-
-Dense Layer
-
-    ↓
-
-Softmax Output
-    
-    ↓
-
-Prediction
-
-
-# 📊 Model Performance
-
-| Model | Accuracy |
-|------|------|
-| Architecture Classifier | 92% |
-| Temple Style Classifier | 89% |
-
-The model performs well in identifying architectural features such as:
-
-- Towers
-- Domes
-- Sculptures
-- Structural symmetry
-  
-# 🖼️ Application Demo
-
-### Church Detection
-
-![Church Prediction](chruch.png)
+</div>
 
 ---
 
-### Dravidian Temple Detection
+## 📸 Live Demo
 
-![Dravidian Prediction](temple_dravidian%20.png)
+<table>
+  <tr>
+    <td align="center" width="33%">
+      <img src="chruch.png" alt="Church Detection" width="100%"/>
+      <br/>
+      <b>⛪ Church Detected</b>
+      <br/>
+      <sub>Confidence: 97%</sub>
+    </td>
+    <td align="center" width="33%">
+      <img src="temple_dravidian_.png" alt="Dravidian Temple" width="100%"/>
+      <br/>
+      <b>🏯 Dravidian Temple</b>
+      <br/>
+      <sub>Style confidence: 75%</sub>
+    </td>
+    <td align="center" width="33%">
+      <img src="temple_nagara.png" alt="Nagara Temple" width="100%"/>
+      <br/>
+      <b>🕌 Nagara Temple</b>
+      <br/>
+      <sub>Style confidence: 79%</sub>
+    </td>
+  </tr>
+</table>
 
 ---
 
-### Nagara Temple Detection
+## ✨ Features
 
-![Nagara Prediction](temple_nagara.png)
+- 🔍 **Two-level classification** — broad type detection (Church / Mosque / Temple) with automatic temple style sub-classification (Dravidian / Nagara)
+- 📊 **Softmax confidence scores** — probability breakdown across all classes per prediction
+- 📷 **Live camera capture** — supports both image upload and real-time webcam input via Streamlit
+- ⚠️ **Low-confidence warning** — flags unclear or non-architectural images automatically
+- 🏗️ **MobileNetV2 backbone** — transfer learning from ImageNet for fast, accurate feature extraction
+- 🎨 **Custom Streamlit UI** — glowing dark-mode interface with styled confidence bars and architectural descriptions
 
-# Requirements
+---
 
-## Create requirements.txt
+## 🧠 How It Works
 
-streamlit
+The system runs a **two-stage CNN pipeline** powered by MobileNetV2 transfer learning:
 
-tensorflow
+```
+📷 Image Input (upload or webcam)
+         │
+         ▼
+🔧 Preprocessing
+   • Resize to 224×224
+   • Pixel normalisation (÷255)
+   • RGBA → RGB, grayscale → RGB handling
+         │
+         ▼
+🧠 Level 1 Classifier  ←─── MobileNetV2 + GlobalAveragePooling + Dense(3, softmax)
+   • Trained on: Church / Mosque / Temple
+   • Accuracy: 92%
+         │
+         ├──── Church  →  "Steeples, Gothic/Baroque or Modern styles"
+         ├──── Mosque  →  "Domes, Minarets, Arches, Islamic ornaments"
+         └──── Temple  ──────────────────────────────────────────────┐
+                                                                      │
+                                                                      ▼
+                                               🧠 Level 2 Classifier
+                                                  • Dravidian vs Nagara
+                                                  • Accuracy: 89%
+                                                      │
+                                          ┌───────────┴───────────┐
+                                          ▼                       ▼
+                                     Dravidian               Nagara
+                                  Gopurams, South         Shikharas, North
+                                       India                   India
+         │
+         ▼
+📈 Output: Class label + confidence scores + architectural description
+```
 
-keras
+---
 
-opencv
+## 🏗️ Model Architecture
 
-python
+Both classifiers share the same backbone but are trained independently:
 
-numpy
+```python
+base = tf.keras.applications.MobileNetV2(
+    input_shape=(224, 224, 3),
+    include_top=False,
+    weights='imagenet'
+)
+x = tf.keras.layers.GlobalAveragePooling2D()(base.output)
+output = tf.keras.layers.Dense(num_classes, activation='softmax')(x)
+model = tf.keras.Model(base.input, output)
+```
 
-pillow
+| Layer | Details |
+|-------|---------|
+| Input | 224 × 224 × 3 RGB image |
+| Backbone | MobileNetV2 (ImageNet pretrained, frozen) |
+| Pooling | GlobalAveragePooling2D |
+| Output | Dense → Softmax (3 classes or 2 classes) |
+| Optimizer | Adam |
+| Loss | Categorical Crossentropy |
 
-matplotlib
+---
 
-scikit-learn
+## 📊 Model Performance
 
-## Install dependencies:
+| Model | Task | Accuracy |
+|-------|------|----------|
+| `main_classifier.h5` | Church / Mosque / Temple | **92%** |
+| `temple_classifier.h5` | Dravidian / Nagara | **89%** |
 
+Key visual features learned by the models:
+
+- **Churches** — steeples, crosses, Gothic arches, rose windows, stained glass
+- **Mosques** — domes, minarets, pointed arches, Islamic geometric patterns
+- **Dravidian temples** — pyramidal gopurams, ornate multi-tier sculptures, South Indian palette
+- **Nagara temples** — beehive shikhara towers, simpler exterior, vertical emphasis, North Indian form
+
+---
+
+## 🧪 Training Details
+
+### Data Augmentation
+
+```python
+train_gen = ImageDataGenerator(
+    rescale=1./255,
+    rotation_range=18,
+    width_shift_range=0.14,
+    height_shift_range=0.14,
+    shear_range=0.13,
+    zoom_range=0.13,
+    brightness_range=[0.85, 1.15],
+    horizontal_flip=True,
+    fill_mode='nearest'
+)
+```
+
+### Training Configuration
+
+| Parameter | Value |
+|-----------|-------|
+| Image size | 224 × 224 |
+| Batch size | 8 |
+| Epochs | 12 |
+| Optimizer | Adam |
+| Loss | Categorical Crossentropy |
+| Backbone | MobileNetV2 (ImageNet) |
+
+### Dataset Folder Structure
+
+```
+project/
+├── train/
+│   ├── Church/
+│   ├── Mosque/
+│   └── Temple/
+│       ├── dravidian/
+│       └── nagara/
+├── test/
+│   ├── Church/
+│   ├── Mosque/
+│   └── Temple/
+│       ├── dravidian/
+│       └── nagara/
+├── main_classifier.h5
+├── temple_classifier.h5
+├── app.py          ← training script
+├── streamlit.py    ← Streamlit UI
+└── predict.py      ← standalone inference
+```
+
+---
+
+## ⚙️ Installation & Usage
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/manojrameshdev/Architectural_classification_with_Ai.git
+cd Architectural_classification_with_Ai
+```
+
+### 2. Install dependencies
+
+```bash
 pip install -r requirements.txt
+```
 
-![Python](https://img.shields.io/badge/Python-3.10-blue)
-![TensorFlow](https://img.shields.io/badge/TensorFlow-DeepLearning-orange)
-![Streamlit](https://img.shields.io/badge/Streamlit-WebApp-red)
-![License](https://img.shields.io/badge/License-MIT-green)
+```
+streamlit>=1.30
+tensorflow>=2.10
+pillow>=9.0
+numpy>=1.23
+scikit-learn>=1.3
+```
 
-# 📂 Dataset 
+### 3. Train the models
 
-Images were collected from open-source architectural datasets and manually curated images of:
+```bash
+python app.py
+```
 
-• Churches
-• Dravidian temples
-• Nagara temples
+This trains both classifiers and saves `main_classifier.h5` and `temple_classifier.h5` to the project root.
 
-link :- https://drive.google.com/drive/folders/1LbzF0nsc0NqjqXjtO9bMaDa-Hy9BqfNk?usp=sharing
+### 4. Run the Streamlit app
 
-# ⚙ Installation
+```bash
+streamlit run streamlit.py
+```
 
-Clone the repository
+### 5. Standalone prediction (optional)
 
-1. git clone https://github.com/manojrameshdev/Architectural_classification_with_Ai.git
+```python
+from predict import predict_image
 
-2. cd Architectural_classification_with_Ai
+result = predict_image("your_image.jpg")
+print(result)  # e.g. "Temple - Nagara"
+```
 
-3. Install dependencies
+---
 
-4. pip install -r requirements.txt
+## 📂 Dataset
 
-5. Run the application
+Images were sourced from open-source architectural datasets and manually curated across four categories:
 
-6. streamlit run app.py
+| Class | Description |
+|-------|-------------|
+| Church | Western and Eastern Christian structures |
+| Mosque | Ottoman, Mughal, and Persian styles |
+| Dravidian Temple | South Indian — Meenakshi, Brihadeeswarar style |
+| Nagara Temple | North Indian — Akshardham, Konark style |
 
-# 🛠 Tech Stack
+📁 [Download Dataset (Google Drive)](https://drive.google.com/drive/folders/1LbzF0nsc0NqjqXjtO9bMaDa-Hy9BqfNk?usp=sharing)
 
-Python
+> The training pipeline automatically scans for and removes corrupt images before training begins.
 
-TensorFlow / Keras
+---
 
-OpenCV
+## 🛠️ Tech Stack
 
-Streamlit
+| Tool | Role |
+|------|------|
+| Python 3.10 | Core language |
+| TensorFlow / Keras | Model training and inference |
+| MobileNetV2 | Transfer learning backbone |
+| Streamlit | Web application interface |
+| Pillow / OpenCV | Image loading and preprocessing |
+| NumPy | Array operations |
+| Scikit-learn | Evaluation metrics |
 
-NumPy
+---
 
-Scikit-learn
+## 🚀 Future Improvements
 
-# 🚀 Future Improvements
+- [ ] Expand to more architectural styles — Buddhist temples, Sikh Gurdwaras, Synagogues, Shinto shrines
+- [ ] Replace MobileNetV2 with EfficientNetV2 or Vision Transformer for higher accuracy
+- [ ] Increase and diversify the training dataset per class
+- [ ] Deploy on Hugging Face Spaces or Streamlit Cloud for public access
+- [ ] Integrate Generative AI to reconstruct damaged or destroyed architectural features
+- [ ] Add Grad-CAM visualisation to highlight the image regions driving each prediction
+- [ ] Add multi-language support for architectural descriptions
 
-1. Add more architectural styles
+---
 
-2. Improve dataset size
+## 👨‍💻 Author
 
-3. Deploy model online
+<div align="center">
 
-4. Add Gen-Ai to re-construct the destroyed parts of architecture.
+**Manoj Ramesh**
 
-5. Improve model accuracy
+[![GitHub](https://img.shields.io/badge/GitHub-manojrameshdev-181717?style=for-the-badge&logo=github)](https://github.com/manojrameshdev)
 
-# 👨‍💻 Author
+*Built with deep learning and a love for architectural heritage* 🏛️
 
-Manoj Ramesh
-
-## GitHub:
-https://github.com/manojrameshdev
+</div>
