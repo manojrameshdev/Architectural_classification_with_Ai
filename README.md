@@ -37,10 +37,10 @@
       <sub>✅ Church: <code>1.00</code> &nbsp;|&nbsp; Mosque: <code>0.00</code> &nbsp;|&nbsp; Temple: <code>0.00</code></sub>
     </td>
     <td align="center" width="33%">
-      <img src="church2.png" alt="Church high confidence" width="100%"/>
+      <img src="temple_dravidian .png" alt="Dravidian Temple high confidence" width="100%"/>
       <br/><br/>
-      <b>⛪ Church — High Confidence</b><br/>
-      <sub>✅ Church: <code>0.83</code> &nbsp;|&nbsp; Mosque: <code>0.00</code> &nbsp;|&nbsp; Temple: <code>0.17</code></sub>
+      <b>  Temple Dravidian — High Confidence</b><br/>
+      <sub>✅ Church: <code>0.00</code> &nbsp;|&nbsp; Mosque: <code>0.00</code> &nbsp;|&nbsp; Temple: <code>1.00</code></sub>
     </td>
     <td align="center" width="33%">
       <img src="mosque.png" alt="Mosque prediction" width="100%"/>
