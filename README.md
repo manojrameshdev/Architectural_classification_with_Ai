@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="architecture_diagram.png" alt="Architecture Diagram" width="100%"/>
+<img src="architecture_diagram.png" alt="Architecture Diagram" width="100%"/ >
 
 <br/>
 
